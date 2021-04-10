@@ -1,0 +1,15 @@
+#main-wrapper {
+  background-image: linear-gradient(to bottom, #1A4A1C, #308834 600px);
+  background-image: -webkit-linear-gradient(top, #1A4A1C, #308834 600px);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  img.card-image {
+    position: absolute;
+    right: 0;
+    width: 130px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
