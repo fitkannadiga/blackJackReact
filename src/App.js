@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import './App.scss';
+import Home from './components/Home/home';
+import Game from './components/Game/game';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <>
+      <Router>
+        <div id="main-wrapper">
+        <img src="/static/img/blackjack2.png" class="card-image"></img>
+        <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/game">
+              <Game />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+      <NotificationContainer/>
+      </>
+    )
+  }
 }
-
-export default App;
