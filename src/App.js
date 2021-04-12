@@ -3,14 +3,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.scss';
 import Home from './components/Home/home';
 import Game from './components/Game/game';
-
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 export default class App extends Component {
   render() {
     return (
+      <>
       <Router>
         <div id="main-wrapper">
-        <img src="/static/img/blackjack2.png" class="card-image"/>
+        <img src="/static/img/blackjack2.png" class="card-image"></img>
         <Switch>
             <Route exact path="/">
               <Home />
@@ -21,6 +23,8 @@ export default class App extends Component {
           </Switch>
         </div>
       </Router>
+      <NotificationContainer/>
+      </>
     )
   }
 }

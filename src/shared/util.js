@@ -6,7 +6,7 @@ export function getDeckOfCards() {
     })
     .catch(error => {
         // console.log(error);
-        return error.json();
+        return error;
     });
 }
 
@@ -18,6 +18,6 @@ export function getCard(deckId, count){
     })
     .catch(error => {
         // console.log(error);
-        return error.json();
+        return error;
     });
 }
