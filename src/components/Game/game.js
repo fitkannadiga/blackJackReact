@@ -49,9 +49,9 @@ export default class game extends Component {
                 this.drawCards('player');
                 setTimeout(() => {
                     this.drawCards('dealer');
-                }, 700);
-            }, 700);
-        }, 700);
+                }, 1200);
+            }, 1200);
+        }, 1200);
     }
 
     async drawCards (id){
@@ -225,8 +225,6 @@ export default class game extends Component {
         this.createNotification((((id == 'Player' && status == 'W') || (id == 'Dealer' && status == 'L')) ? 'success' : 'error'), msg);
         this.setState({
             winnerMsg : msg
-        }, function(){
-            // this.createNotification((id === 'dealer' ? 'error' : 'success'), this.state.winnerMsg);
         });        
     }
 
@@ -249,7 +247,7 @@ export default class game extends Component {
             this.createNotification('info', 'Dealer will draw card now!');
             setTimeout(() => {
                 this.drawCards('dealer');
-            }, 1000);
+            }, 1200);
         }
     }
 
@@ -278,16 +276,16 @@ export default class game extends Component {
     createNotification = (type, message) => {
         switch (type) {
         case 'info':
-            NotificationManager.info('Info', message);
+            NotificationManager.info('', message, 5000);
             break;
         case 'success':
-            NotificationManager.success('Success', message);
+            NotificationManager.success('Oh Yeah!!!', message, 5000);
             break;
         case 'warning':
-            NotificationManager.warning('Warning', message, 3000);
+            NotificationManager.warning('', message, 5000);
             break;
         case 'error':
-            NotificationManager.error('Error', message, 5000);
+            NotificationManager.error('', message, 5000);
             break;
         }
       };
@@ -343,7 +341,7 @@ export default class game extends Component {
                                 {
                                     this.state.winnerDeclared ?
                                     <div id="winner-wrapper">
-                                        <p>{this.state.winnerMsg}</p>
+                                        <h4>{this.state.winnerMsg}</h4>
                                         <Button className="action-btn" variant="success" onClick={() => this.reset()}>Play Again!</Button>
                                     </div>
                                     : ''
